@@ -14,7 +14,7 @@ except ImportError:
     print("To enable .env file support, run: pip install python-dotenv")
 
 # Database configuration
-DB_SERVER = os.getenv("DB_SERVER", "agentdb123.database.windows.net")
+DB_SERVER = os.getenv("DB_SERVER", "agent123.database.windows.net")
 DB_NAME = os.getenv("DB_NAME", "compliance_db")
 DB_PORT = os.getenv("DB_PORT", "1433")
 DB_DRIVER = os.getenv("DB_DRIVER", "{ODBC Driver 18 for SQL Server}")
@@ -22,7 +22,7 @@ DB_DRIVER = os.getenv("DB_DRIVER", "{ODBC Driver 18 for SQL Server}")
 # AI Model configuration
 AI_MODEL_PROVIDER = os.getenv("AI_MODEL_PROVIDER", "groq")
 AI_MODEL_NAME = os.getenv("AI_MODEL_NAME", "llama3.3-70b-versatile")
-AI_API_KEY = os.getenv("AI_API_KEY", "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")
+AI_API_KEY = os.getenv("AI_API_KEY", "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")
 
 # Application configuration
 APP_NAME = "Banking Compliance Assistant"
@@ -61,7 +61,7 @@ SESSION_COLUMN_MAPPING = "column_mapping"    # Mapping of standardized to origin
 
 # Database configuration
 # Try to get from environment variables or use defaults
-DB_SERVER = os.environ.get("DB_SERVER", "agentdb123.database.windows.net")
+DB_SERVER = os.environ.get("DB_SERVER", "agent123.database.windows.net")
 DB_NAME = os.environ.get("DB_NAME", "compliance_db")
 DB_PORT = os.environ.get("DB_PORT", "1433")  # Default for SQL Server
 

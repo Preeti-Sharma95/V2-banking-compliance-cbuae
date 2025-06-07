@@ -5,7 +5,6 @@ import os
 import hashlib
 import hmac
 
-import ui
 from database.connection import maintain_connection, wakeup_connection, perform_keepalive
 
 # ⚠️ IMPORTANT: Set page config FIRST, before any other imports or operations ⚠️
@@ -125,18 +124,20 @@ if check_password():
 
     # Import database initialization functions
     from database.schema import init_db, get_db_schema
-# Add this after imports but before UI rendering
-# Initialize session state variables
+
+    # Add this after imports but before UI rendering
+    # Initialize session state variables
     from config import SESSION_COLUMN_MAPPING, SESSION_APP_DF, SESSION_DATA_PROCESSED
 
     if SESSION_COLUMN_MAPPING not in st.session_state:
         st.session_state[SESSION_COLUMN_MAPPING] = {}
-    
+
     if SESSION_APP_DF not in st.session_state:
         st.session_state[SESSION_APP_DF] = None
-    
+
     if SESSION_DATA_PROCESSED not in st.session_state:
         st.session_state[SESSION_DATA_PROCESSED] = False
+
     # Now import UI modules
     from ui.sidebar import render_sidebar
     from ui.dormant_ui import render_dormant_analyzer
@@ -167,7 +168,7 @@ if check_password():
 
     # Try to initialize the database
     try:
-        db_init= init_db()
+        db_init = init_db()
     except Exception as e:
         st.sidebar.error(f"Database initialization error: {str(e)}")
         st.sidebar.info("Continuing with limited database functionality.")
@@ -218,11 +219,11 @@ if check_password():
         df = st.session_state.get(SESSION_APP_DF)
         app_mode = st.session_state.get("app_mode", "🏦 Dormant Account Analyzer")
 
-        # Display different UI based on selected mode
+        # Display different UI based on selected mode - FIXED IMPORTS
         if app_mode == "🏦 Dormant Account Analyzer":
-            ui.dormant_ui.render_dormant_analyzer(df, report_date_str, llm, dormant_flags_history_df)   # NEW
+            render_dormant_analyzer(df, report_date_str, llm, dormant_flags_history_df)
         elif app_mode == "🔒 Dormant Compliance Analyzer":
-            ui.compliance_ui.render_compliance_analyzer(df,agent_name_input, llm)
+            render_compliance_analyzer(df, agent_name_input, llm)
         elif app_mode == "💬 Chatbot Only":
             render_chatbot(df, llm)
         elif app_mode == "🔍 SQL Bot":

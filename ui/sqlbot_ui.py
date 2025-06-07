@@ -14,7 +14,7 @@ from database.schema import get_db_schema, get_datetime_columns_info, is_datetim
 from ai.llm import load_llm  # This is the correct function name in your ai/llm.py
 from langchain.prompts import PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
-from ai.visualization import generate_plot, create_insights_chart
+from ai.visualizations import generate_plot, create_insights_chart
 
 def init_sql_bot_session_state():
     """Initialize session state variables for SQL Bot."""

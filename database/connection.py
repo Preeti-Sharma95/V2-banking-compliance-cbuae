@@ -392,7 +392,7 @@ def show_credentials_help():
     """Show help for setting up credentials."""
     st.sidebar.info("""
     **Required Configuration:**
-    - DB_SERVER (e.g., agentdb123.database.windows.net)
+    - DB_SERVER (e.g., agent123.database.windows.net)
     - DB_NAME (your database name)
     - DB_USERNAME (your username)
     - DB_PASSWORD (your password)

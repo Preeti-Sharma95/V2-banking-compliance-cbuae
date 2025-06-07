@@ -85,10 +85,10 @@ secrets:
   enabled: true
   name: banking-db-secrets
   data:
-    AZURE_SQL_SERVER: "agentdb123.database.windows.net"
+    AZURE_SQL_SERVER: "agent123.database.windows.net"
     AZURE_SQL_DATABASE: "compliance.db"
-    AZURE_SQL_USERNAME: "CloudSA98cc6266"
-    AZURE_SQL_PASSWORD: "agent@123"
+    AZURE_SQL_USERNAME: "CloudSA44c529e3"
+    AZURE_SQL_PASSWORD: "agent@1995"
 
 # Health checks
 healthCheck:
